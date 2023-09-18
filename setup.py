@@ -5,7 +5,7 @@ with open("README.md", "r", encoding = "utf-8") as file:
 
 setup(
     name='lyapynov',
-    version='1.0',
+    version='1.0.1',
     author='Thomas Savary',
     author_email='savarythomas2102@gmail.com',
     description='A python package to compute Lyapunov exponents, covariant Lyapunov vectors (CLV) and adjoints of a dynamical system.',
