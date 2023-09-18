@@ -2,14 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='lyapynov',
-    version='0.1',
+    version='1.1',
     author='Thomas Savary',
     author_email='savarythomas2102@gmail.com',
     description='A python package to compute Lyapunov exponents, covariant Lyapunov vectors (CLV) and adjoints of a dynamical system.',
     url='https://github.com/ThomasSavary08/Lyapynov',
-    packages=find_packages(where='src'),
-    package_dir={'': 'src'},
+    packages=find_packages(),
     keywords='Lyapunov, Lyapunov exponents, LCE, Covariant Lyapunov vectors, CLV, Dynamical systems, ODE',
     python_requires='>=3.8',
-    install_requires=['numpy', 'matplotlib', 'pickle'],
+    install_requires=['numpy', 'matplotlib'],
 )
