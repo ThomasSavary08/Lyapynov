@@ -1,13 +1,12 @@
 from setuptools import setup, find_packages
-from lyapynov.__init__ import __version__, __author__
 
 with open("README.md", "r", encoding = "utf-8") as file:
     desc = file.read()
 
 setup(
     name='lyapynov',
-    version=__version__,
-    author=__author__,
+    version='1.0',
+    author='Thomas Savary',
     author_email='savarythomas2102@gmail.com',
     description='A python package to compute Lyapunov exponents, covariant Lyapunov vectors (CLV) and adjoints of a dynamical system.',
     long_description=desc,
