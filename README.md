@@ -8,7 +8,7 @@ The results/algorithms used are taken from [P. Kuptsov's paper on covariant Lyap
 Use the package manager pip to install Lyapynov.
 
 ```bash
-pip install Lyapynov
+pip install lyapynov
 ```
 
 ## Usage
