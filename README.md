@@ -52,6 +52,8 @@ discrete_system = lyapynov.DiscreteDS(x0, t0, f, jac)
 
 Once the dynamic system has been defined, the following functions can be used:
 
+</br>
+
 * Maximum Lyapunov exponents (MLE) to compute the maximum Lyapunov exponent $\lambda_{1}$.
 ```python
 def mLCE(system : DynamicalSystem, n_forward : int, n_compute : int, keep : bool):
