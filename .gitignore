@@ -9,3 +9,7 @@ __pycache__/
 # Ignore packages folders
 **/lyapynov.egg-info/
 lyapynov.egg-info/
+
+# dist folder
+**/dist/
+dist/
