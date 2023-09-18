@@ -25,7 +25,15 @@ First, one needs to define the system to study (which can be discrete or continu
 \right. 
 ```
 * the jacobian of $f$ with respect to $x$ or $x_{n}$:
-$$ \left\{ \begin{array}{ll} J(x,t) = \displaystyle \frac{\partial f}{\partial x}(x,t) \\ ~ \\ J(x_{n},n) = \displaystyle \frac{\partial f}{\partial x_{n}}(x_{n},n) \end{array} \right. $$
+```math
+\left\{
+    \begin{array}{ll}
+        J(x,t) = \displaystyle \frac{\partial f}{\partial x}(x,t) \\
+        ~ \\
+        J(x_{n},n) = \displaystyle \frac{\partial f}{\partial x_{n}}(x_{n},n)
+    \end{array}
+\right. 
+```
 
 </br>
 
