@@ -5,3 +5,7 @@
 **/__pycache__/
 __pycache__/
 *.pyc
+
+# Ignore packages folders
+**/lyapynov.egg-info/
+lyapynov.egg-info/
