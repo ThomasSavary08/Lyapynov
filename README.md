@@ -16,24 +16,16 @@ pip install Lyapynov
 First, one needs to define the system to study (which can be discrete or continuous) using the ContinuousDS or DiscreteDS methods. These methods take the following parameters as input:
 * the initial conditions $x_{0}$ and $t_{0}$ $(x(t_{0}) = x_{0})$.
 * the function $f$ describing the dynamical system:
-$$
+```math
 \left\{
     \begin{array}{ll}
         \dot{x} = f(x,t) \\
         x_{n+1} = f(x_{n},n)
     \end{array}
 \right. 
-$$
+```
 * the jacobian of $f$ with respect to $x$ or $x_{n}$:
-$$
-\left\{
-    \begin{array}{ll}
-        J(x,t) = \displaystyle \frac{\partial f}{\partial x}(x,t) \\
-        ~ \\
-        J(x_{n},n) = \displaystyle \frac{\partial f}{\partial x_{n}}(x_{n},n)
-    \end{array}
-\right. 
-$$
+$$ \left\{ \begin{array}{ll} J(x,t) = \displaystyle \frac{\partial f}{\partial x}(x,t) \\ ~ \\ J(x_{n},n) = \displaystyle \frac{\partial f}{\partial x_{n}}(x_{n},n) \end{array} \right. $$
 
 </br>
 
