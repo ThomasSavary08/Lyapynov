@@ -10,5 +10,6 @@ setup(
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     keywords='Lyapunov, Lyapunov exponents, LCE, Covariant Lyapunov vectors, CLV, Dynamical systems, ODE',
-    install_requires=['numpy'],
+    python_requires='>=3.8',
+    install_requires=['numpy', 'matplotlib', 'pickle'],
 )
