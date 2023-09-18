@@ -22,7 +22,6 @@ setup(
         "Topic :: Scientific/Engineering",
         "Topic :: Scientific/Engineering :: Mathematics",
         "Topic :: Scientific/Engineering :: Physics",
-        "Topic :: Scientific/Engineering :: Simulation",
         "Programming Language :: Python :: 3", 
     ]
 )
