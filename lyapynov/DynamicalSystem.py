@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 # Abstract class for dynamical systems
 class DynamicalSystem(ABC):
 
-    def __init__(self, x0, t0, f, jac, dt):
+    def __init__(self, x0, t0, f, jac, dt, **kwargs):
         '''
         Instantiation of a dynamical system.
             Parameters:
@@ -15,6 +15,7 @@ class DynamicalSystem(ABC):
                 f (function): function f of ẋ = f(x,t) or x_(n+1) = f(x_n).
                 jac (function): jacobian of f with respect to x.
                 dt (float): time interval between two time steps.
+                kwargs (dict): Dictionary of parameters for f and jac.
         '''
         self.x0 = x0
         self.t0 = t0
@@ -24,7 +25,8 @@ class DynamicalSystem(ABC):
         self.f = f
         self.jac = jac
         self.dt = dt
-    
+        self.kwargs = kwargs
+
     def copy(self):
         '''
         Copy a dynamical system.
@@ -75,7 +77,7 @@ class DynamicalSystem(ABC):
 # Continuous dynamical system
 class ContinuousDS(DynamicalSystem):
 
-    def __init__(self, x0, t0, f, jac, dt):
+    def __init__(self, x0, t0, f, jac, dt, **kwargs):
         '''
         Instantiation of a dynamical system.
             Parameters:
@@ -84,17 +86,18 @@ class ContinuousDS(DynamicalSystem):
                 f (function): function f of ẋ = f(x,t) or x_(n+1) = f(x_n).
                 jac (function): jacobian of f with respect to x.
                 dt (float): time interval between two time steps.
+                kwargs (dict): Dictionary of parameters for f and jac.
         '''
-        super().__init__(x0, t0, f, jac, dt)
+        super().__init__(x0, t0, f, jac, dt, **kwargs)
     
     def next(self):
         '''
         Compute the state of the system after one time step with RK4 method.
         '''
-        k1 = self.f(self.x, self.t)
-        k2 = self.f(self.x + (self.dt / 2.) * k1, self.t + (self.dt / 2.))
-        k3 = self.f(self.x + (self.dt / 2.) * k2, self.t + (self.dt / 2.))
-        k4 = self.f(self.x + self.dt * k3, self.t + self.dt)
+        k1 = self.f(self.x, self.t, **self.kwargs)
+        k2 = self.f(self.x + (self.dt / 2.) * k1, self.t + (self.dt / 2.), **self.kwargs)
+        k3 = self.f(self.x + (self.dt / 2.) * k2, self.t + (self.dt / 2.), **self.kwargs)
+        k4 = self.f(self.x + self.dt * k3, self.t + self.dt, **self.kwargs)
         self.x = self.x + (self.dt / 6.) * (k1 + 2*k2 + 2*k3 + k4)
         self.t += self.dt
     
@@ -106,7 +109,7 @@ class ContinuousDS(DynamicalSystem):
             Returns:
                 res (numpy.ndarray): Array of deviations vectors at next time step
         '''
-        jacobian = self.jac(self.x, self.t)
+        jacobian = self.jac(self.x, self.t, **self.kwargs)
         k1 = jacobian @ W
         k2 = jacobian @ (W + (self.dt / 2.) * k1)
         k3 = jacobian @ (W + (self.dt / 2.) * k2)
@@ -117,7 +120,7 @@ class ContinuousDS(DynamicalSystem):
 # Discrete dynamical system
 class DiscreteDS(DynamicalSystem):
 
-    def __init__(self, x0, t0, f, jac, dt = 1):
+    def __init__(self, x0, t0, f, jac, dt = 1, **kwargs):
         '''
         Instantiation of a dynamical system.
             Parameters:
@@ -126,14 +129,15 @@ class DiscreteDS(DynamicalSystem):
                 f (function): function f of ẋ = f(x,t) or x_(n+1) = f(x_n).
                 jac (function): jacobian of f with respect to x.
                 dt (float): time interval between two time steps.
+                kwargs (dict): Dictionary of parameters for f and jac.
         '''
-        super().__init__(x0, t0, f, jac, dt)
+        super().__init__(x0, t0, f, jac, dt, **kwargs)
     
     def next(self):
         '''
         Compute the state of the system after one time step using f.
         '''
-        self.x = self.f(self.x, self.t)
+        self.x = self.f(self.x, self.t, **self.kwargs)
         self.t += self.dt
 
     def next_LTM(self, W):
@@ -144,7 +148,7 @@ class DiscreteDS(DynamicalSystem):
             Returns:
                 res (numpy.ndarray): Array of deviations vectors at next time step
         '''
-        jacobian = self.jac(self.x, self.t)
+        jacobian = self.jac(self.x, self.t, **self.kwargs)
         res = jacobian @ W
         if (self.dim == 1):
             return np.array([res])
