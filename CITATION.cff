@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Savary
+    given-names: Thomas
+title: "Lyapynov"
+version: "1.0.0"
+doi: "10.5281/zenodo.17099554"
+date-released: 2025-09-11
+url: "https://github.com/ThomasSavary08/Lyapynov"
