@@ -1,4 +1,4 @@
-# Lyapynov
+# ⚡ Lyapynov
 [![DOI](https://zenodo.org/badge/692853725.svg)](https://doi.org/10.5281/zenodo.17099554)
 [![PyPI](https://img.shields.io/pypi/v/lyapynov.svg)](https://pypi.org/project/lyapynov/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -6,7 +6,7 @@
 Lyapynov is a Python library to compute Lyapunov exponents, covariant Lyapunov vectors (CLV) and their adjoints for a dynamical system.
 The results/algorithms used are taken from [P. Kuptsov's paper on covariant Lyapunov vectors](https://arxiv.org/abs/1105.5228).
 
-## Installation
+## ⚙️ Installation
 
 Use the package manager pip to install Lyapynov.
 
@@ -14,7 +14,7 @@ Use the package manager pip to install Lyapynov.
 pip install lyapynov
 ```
 
-## Usage
+## 📝 Usage
 
 First, one needs to define the system to study (which can be discrete or continuous) using the ContinuousDS or DiscreteDS methods. These methods take the following parameters as input:
 * the initial conditions $x_{0}$ and $t_{0}$ $(x(t_{0}) = x_{0})$.
