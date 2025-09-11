@@ -1,6 +1,7 @@
 # Lyapynov
 [![DOI](https://zenodo.org/badge/692853725.svg)](https://doi.org/10.5281/zenodo.17099554)
 [![PyPI](https://img.shields.io/pypi/v/lyapynov.svg)](https://pypi.org/project/lyapynov/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Lyapynov is a Python library to compute Lyapunov exponents, covariant Lyapunov vectors (CLV) and their adjoints for a dynamical system.
 The results/algorithms used are taken from [P. Kuptsov's paper on covariant Lyapunov vectors](https://arxiv.org/abs/1105.5228).
